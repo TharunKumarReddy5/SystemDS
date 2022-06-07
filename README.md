@@ -15,12 +15,6 @@ SystemDS (formerly known as SystemML was developed by IBM and then open-sourced 
 
 The latest version of SystemDS supports: Java 8+, Python 3.5+, Hadoop 3.x, and Spark 3.x, Nvidia CUDA 10.2 (CuDNN 7.x) Intel MKL (<=2019.x). For this document, we stick to naming the system SystemDS apart from diagrams, which could be referenced from old documents, hence the name would be SystemML. We will be covering some of the key features and/or characteristics of SystemDS as follows.
 
-## Dependencies
-
-Install the dependencies from the requirements.txt file using
-
-    python -m pip install -r requirements.txt
-    
 ## Repository Structure:
 Here are the main folders in our github SystemDS repository:
 ```bash
@@ -80,23 +74,6 @@ Here are the main folders in our github SystemDS repository:
 ├── .travis.yml
 ├── .wsgi.py
 ```
-
-## Code Examples:
-
-**Code example_1**: Here in this part, the user uploads a model .pkl file which is then passed as an input to the PipelineDiagram class. The two ML pipeline diagrams are created using .show and .show_params:
-
-    evalml_pipeline = joblib.load('models/automl_pipeline.pkl')
-    a = PipelineDiagram(evalml_pipeline)
-    a.show(title='Evalml ML Pipeline Diagram')
-    a.show_params(title='Evalml Machine Learning Parameters Pipeline')
-
-**Code example_2**: Here in this part, the suggest function generates the output for the varoius components of the model depending upon what the user specifies:
-
-    b = PipelineSuggest()
-    b.fit(data = df, response = 'survived', predictor_list = ['pclass','age','gender'], problem_type='binary', objective='auto', test_size=0.2)
-    b.suggest(suggest_type='fe')
-    b.suggest(suggest_type='model')
-    b.suggest(suggest_type='all')    
 
 ## Authors
 - [Tharun Kumar Reddy Karasani](https://github.com/TharunKumarReddy5)
